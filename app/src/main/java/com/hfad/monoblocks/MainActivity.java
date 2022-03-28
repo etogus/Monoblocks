@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        MyAdapter myAdapter = new MyAdapter(getApplicationContext(),monoList);
+        MyAdapter myAdapter = new MyAdapter(this,monoList);
         recyclerView.setAdapter(myAdapter);
 
         monoList.addChangeListener(new RealmChangeListener<RealmResults<Mono>>() {

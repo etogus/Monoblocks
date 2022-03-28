@@ -1,6 +1,7 @@
 package com.hfad.monoblocks;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,11 +40,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.company.setText(companyText);
         String screenText = mono.getScreen() + "\", ";
         holder.screen.setText(screenText);
-        String ramText = mono.getRam() + "ГБ ОЗУ, ";
+        String ramText = mono.getRam() + " ГБ ОЗУ, ";
         holder.ram.setText(ramText);
-        String ssdText = mono.getSsd() + "ГБ SSD, ";
+        String ssdText = mono.getSsd() + " ГБ SSD, ";
         holder.ssd.setText(ssdText);
         holder.system.setText(mono.getSystem());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DetailActivity.class);
+                intent.putExtra("name", mono.getName());
+                intent.putExtra("company", mono.getCompany());
+                intent.putExtra("screen", mono.getScreen());
+                intent.putExtra("ram", mono.getRam());
+                intent.putExtra("ssd", mono.getSsd());
+                intent.putExtra("system", mono.getSystem());
+                view.getContext().startActivity(intent);
+            }
+        });
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

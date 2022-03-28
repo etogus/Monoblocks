@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Monoblocks">
         <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddMonoActivity"
             android:exported="false" />
         <activity
